@@ -5,7 +5,8 @@
   </component>
   <component name="ChangeListManager">
     <list default="true" id="9a67eeb7-5367-4657-b09d-07ccc0ea2a73" name="Changes" comment="">
-      <change beforePath="$PROJECT_DIR$/src/main/java/com/boney/qrcode/builder/QRCodeBuilderImpl.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/com/boney/qrcode/builder/QRCodeBuilderImpl.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/main/java/com/boney/qrcode/io/QRCodeFileReader.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/com/boney/qrcode/io/QRCodeFileReader.java" afterDir="false" />
     </list>
     <option name="SHOW_DIALOG" value="false" />
     <option name="HIGHLIGHT_CONFLICTS" value="true" />
@@ -22,6 +23,20 @@
   </component>
   <component name="Git.Settings">
     <option name="RECENT_GIT_ROOT_PATH" value="$PROJECT_DIR$" />
+  </component>
+  <component name="GitHubPullRequestSearchHistory"><![CDATA[{
+  "lastFilter": {
+    "state": "OPEN",
+    "assignee": "dvc-77"
+  }
+}]]></component>
+  <component name="GithubPullRequestsUISettings">
+    <option name="selectedUrlAndAccountId">
+      <UrlAndAccount>
+        <option name="accountId" value="a4d0bf50-ecbe-426a-99f0-138ce603b3c8" />
+        <option name="url" value="git@github.com:dvc-77/QRCodeGenerator.git" />
+      </UrlAndAccount>
+    </option>
   </component>
   <component name="ProjectId" id="2e3fFrvhAfPRg3jI2KaaO0bRSVE" />
   <component name="ProjectLevelVcsManager" settingsEditedManually="true">
@@ -54,7 +69,7 @@
       <option name="number" value="Default" />
       <option name="presentableId" value="Default" />
       <updated>1711138084000</updated>
-      <workItem from="1711138086869" duration="5164000" />
+      <workItem from="1711138086869" duration="8797000" />
     </task>
     <servers />
   </component>

@@ -1,5 +1,6 @@
 package com.boney.qrcode.io;
 
+import com.boney.qrcode.builder.QRCodeConfig;
 import com.boney.qrcode.decoder.QRCodeDecoder;
 import com.boney.qrcode.decoder.QRCodeDecoderImpl;
 import com.boney.qrcode.exception.QRCodeException;
@@ -20,13 +21,15 @@ public class QRCodeFileReader {
             }
 
             QRCodeDecoder decoder = new QRCodeDecoderImpl();
-            String text = decoder.decode(image);
 
-            int size = 300;
-            Color color = Color.WHITE;
-            int errorCorrectionLevel = 0;
+            QRCodeConfig config = new QRCodeConfig();
 
-            return new QRCode(text, size, color, null, errorCorrectionLevel);
+            config.setText(decoder.decode(image));
+            config.setSize(300);
+            config.setColor(Color.WHITE);
+            config.setErrorCorrectionLevel(0);
+
+            return new QRCode(config);
         } catch (IOException e) {
             throw new QRCodeException("Error reading file: " + file.getAbsolutePath(), e);
         } catch (QRCodeException e) {
