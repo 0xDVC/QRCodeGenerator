@@ -12,10 +12,10 @@ import java.awt.image.BufferedImage;
 import java.io.File;
 
 public class QRCodeGenerator {
-    private QRCodeEncoder encoder;
-    private QRCodeDecoder decoder;
-    private QRCodeFileReader fileReader;
-    private QRCodeFileWriter fileWriter;
+    private final QRCodeEncoder encoder;
+    private final QRCodeDecoder decoder;
+    private final QRCodeFileReader fileReader;
+    private final QRCodeFileWriter fileWriter;
 
     public QRCodeGenerator(QRCodeEncoder encoder, QRCodeDecoder decoder, QRCodeFileReader fileReader, QRCodeFileWriter fileWriter) {
         this.encoder = encoder;
@@ -26,8 +26,7 @@ public class QRCodeGenerator {
 
     public QRCode generateQRCode(String text, QRCodeConfig config) throws QRCodeException {
         BufferedImage qrCodeImage = encoder.encode(text, config);
-        QRCode qrCode = new QRCode(text, qrCodeImage);
-        return qrCode;
+        return new QRCode(config);
     }
 
     public String decodeQRCode(BufferedImage qrCodeImage) throws QRCodeException {
