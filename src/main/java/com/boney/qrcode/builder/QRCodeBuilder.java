@@ -10,5 +10,8 @@ public interface QRCodeBuilder {
     QRCodeBuilder withErrorCorrectionLevel(int level);
     QRCodeBuilder withColor(Color color);
     QRCodeBuilder withLogo(BufferedImage logo);
+
+    QRCodeBuilder withSize(int size);
+
     QRCode build();
 }
