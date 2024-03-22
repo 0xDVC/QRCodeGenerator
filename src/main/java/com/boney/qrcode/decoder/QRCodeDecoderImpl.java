@@ -10,7 +10,7 @@ import com.google.zxing.common.HybridBinarizer;
 
 import java.awt.image.BufferedImage;
 
-public class QRCodeDecoderImpl implements QRCodeDecoder{
+public class QRCodeDecoderImpl implements QRCodeDecoder {
     @Override
     public String decode(BufferedImage qrCodeImage) throws QRCodeException {
         try {
