@@ -14,7 +14,7 @@ import java.awt.image.BufferedImage;
 import java.util.EnumMap;
 import java.util.Map;
 
-public class QRCodeEncoderImpl implements QRCodeEncoder{
+public class QRCodeEncoderImpl implements QRCodeEncoder {
     @Override
     public BufferedImage encode(String text, QRCodeConfig config) throws QRCodeException {
         try {
