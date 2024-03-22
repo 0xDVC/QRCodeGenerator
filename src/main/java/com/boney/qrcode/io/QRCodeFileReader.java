@@ -6,6 +6,7 @@ import com.boney.qrcode.exception.QRCodeException;
 import com.boney.qrcode.model.QRCode;
 
 import javax.imageio.ImageIO;
+import java.awt.*;
 import java.awt.image.BufferedImage;
 import java.io.File;
 import java.io.IOException;
@@ -21,8 +22,11 @@ public class QRCodeFileReader {
             QRCodeDecoder decoder = new QRCodeDecoderImpl();
             String text = decoder.decode(image);
 
-            // Assuming you have a constructor in the QRCode class that takes the text and image
-            return new QRCode(text, image);
+            int size = 300;
+            Color color = Color.WHITE;
+            int errorCorrectionLevel = 0;
+
+            return new QRCode(text, size, color, null, errorCorrectionLevel);
         } catch (IOException e) {
             throw new QRCodeException("Error reading file: " + file.getAbsolutePath(), e);
         } catch (QRCodeException e) {
