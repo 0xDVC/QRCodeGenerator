@@ -1,13 +1,32 @@
 package com.boney.qrcode.io;
 
+import com.boney.qrcode.decoder.QRCodeDecoder;
+import com.boney.qrcode.decoder.QRCodeDecoderImpl;
 import com.boney.qrcode.exception.QRCodeException;
 import com.boney.qrcode.model.QRCode;
 
+import javax.imageio.ImageIO;
+import java.awt.image.BufferedImage;
 import java.io.File;
+import java.io.IOException;
 
 public class QRCodeFileReader {
     public QRCode readFromFile(File file) throws QRCodeException {
-        // Implementation for reading QR code data from file
-        return null;
+        try {
+            BufferedImage image = ImageIO.read(file);
+            if (image == null) {
+                throw new QRCodeException("Failed to read image from file: " + file.getAbsolutePath());
+            }
+
+            QRCodeDecoder decoder = new QRCodeDecoderImpl();
+            String text = decoder.decode(image);
+
+            // Assuming you have a constructor in the QRCode class that takes the text and image
+            return new QRCode(text, image);
+        } catch (IOException e) {
+            throw new QRCodeException("Error reading file: " + file.getAbsolutePath(), e);
+        } catch (QRCodeException e) {
+            throw new QRCodeException("Error decoding QR code from file: " + file.getAbsolutePath(), e);
+        }
     }
 }

@@ -8,9 +8,6 @@ import java.awt.image.BufferedImage;
 public class QRCodeBuilderImpl implements QRCodeBuilder{
     private QRCodeConfig config;
 
-    public QRCodeBuilderImpl() {
-    }
-
     @Override
     public QRCodeBuilder withText(String text) {
         config.setText(text);

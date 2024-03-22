@@ -5,28 +5,7 @@
   </component>
   <component name="ChangeListManager">
     <list default="true" id="9a67eeb7-5367-4657-b09d-07ccc0ea2a73" name="Changes" comment="">
-      <change afterPath="$PROJECT_DIR$/.idea/uiDesigner.xml" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/src/main/java/com/boney/qrcode/QRCodeGenerator.java" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/src/main/java/com/boney/qrcode/builder/QRCodeBuilderImpl.java" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/src/main/java/com/boney/qrcode/builder/QRCodeConfig.java" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/src/main/java/com/boney/qrcode/encoder/QRCodeEncoder.java" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/src/main/java/com/boney/qrcode/encoder/QRCodeEncoderImpl.java" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/src/main/java/com/boney/qrcode/io/QRCodeFileWriter.java" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/src/main/java/com/boney/qrcode/model/QRCode.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/pom.xml" beforeDir="false" afterPath="$PROJECT_DIR$/pom.xml" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/main/java/com/boney/qrcode/builder/QRCodeBuilder.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/com/boney/qrcode/builder/QRCodeBuilder.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/main/java/com/boney/qrcode/decoder/QRCodeDecoder.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/com/boney/qrcode/decoder/QRCodeDecoder.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/main/java/com/boney/qrcode/decoder/QRCodeDecoderImpl.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/com/boney/qrcode/decoder/QRCodeDecoderImpl.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/main/java/com/boney/qrcode/exception/QRCodeDecodingException.java" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/main/java/com/boney/qrcode/exception/QRCodeGenerationException.java" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/main/java/com/boney/qrcode/exception/QRCodeManipulationException.java" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/main/java/com/boney/qrcode/factory/QRCodeFactory.java" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/main/java/com/boney/qrcode/generator/QRCodeGenerator.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/com/boney/qrcode/io/QRCodeFileReader.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/main/java/com/boney/qrcode/generator/QRCodeGeneratorImpl.java" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/main/java/com/boney/qrcode/manipulator/QRCodeManipulator.java" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/main/java/com/boney/qrcode/manipulator/QRCodeManipulatorImpl.java" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/main/java/com/boney/qrcode/util/QRCodeUtil.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/com/boney/qrcode/util/QRCodeUtil.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/main/java/com/boney/qrcode/builder/QRCodeBuilderImpl.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/com/boney/qrcode/builder/QRCodeBuilderImpl.java" afterDir="false" />
     </list>
     <option name="SHOW_DIALOG" value="false" />
     <option name="HIGHLIGHT_CONFLICTS" value="true" />
@@ -75,7 +54,7 @@
       <option name="number" value="Default" />
       <option name="presentableId" value="Default" />
       <updated>1711138084000</updated>
-      <workItem from="1711138086869" duration="4724000" />
+      <workItem from="1711138086869" duration="5164000" />
     </task>
     <servers />
   </component>
