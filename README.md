@@ -1,6 +1,6 @@
 # BoneyQR
 
-BoneyQR is a simple command-line interface (CLI) tool for generating QR codes from text input. It utilizes the ZXing library and provides various options for customizing the output QR code image.
+BoneyQR is a simple command-line interface (CLI) tool for generating QR codes from text input. It utilizes the ZXing library and provides various options for customizing the output QR code image. It also renders QR code into text provided an input path is given.
 
 ## Table of Contents
 - [Prerequisites](#prerequisites)
@@ -41,7 +41,7 @@ git clone https://github.com/dvc-77/QRCodeGenerator.git
 - `-f`, `--format`: Set the image format for the QR code (default: png).
 - `-d`, `--directory`: Specify the output directory for the generated QR code image.
 - `-o`, `--output-name`: Set the name of the output file for the QR code image.
-
+- `-r`, `--read`: Specify the input directory for the QR code image to be rendered to text.
 ## Running Locally
 ![Demo](demo.gif)
 
