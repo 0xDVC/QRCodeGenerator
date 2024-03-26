@@ -1,43 +1,28 @@
 package com.boney.qrcode;
 
-import com.boney.qrcode.builder.QRCodeConfig;
-import com.boney.qrcode.decoder.QRCodeDecoder;
-import com.boney.qrcode.encoder.QRCodeEncoder;
-import com.boney.qrcode.exception.QRCodeException;
-import com.boney.qrcode.io.QRCodeFileReader;
-import com.boney.qrcode.io.QRCodeFileWriter;
-import com.boney.qrcode.model.QRCode;
+import com.google.zxing.BarcodeFormat;
+import com.google.zxing.EncodeHintType;
+import com.google.zxing.WriterException;
+import com.google.zxing.client.j2se.MatrixToImageWriter;
+import com.google.zxing.common.BitMatrix;
+import com.google.zxing.qrcode.QRCodeWriter;
+import com.google.zxing.qrcode.decoder.ErrorCorrectionLevel;
 
-import java.awt.image.BufferedImage;
 import java.io.File;
+import java.io.IOException;
+import java.util.EnumMap;
+import java.util.Map;
+
 
 public class QRCodeGenerator {
-    private final QRCodeEncoder encoder;
-    private final QRCodeDecoder decoder;
-    private final QRCodeFileReader fileReader;
-    private final QRCodeFileWriter fileWriter;
+    private File outputFile;
 
-    public QRCodeGenerator(QRCodeEncoder encoder, QRCodeDecoder decoder, QRCodeFileReader fileReader, QRCodeFileWriter fileWriter) {
-        this.encoder = encoder;
-        this.decoder = decoder;
-        this.fileReader = fileReader;
-        this.fileWriter = fileWriter;
-    }
+    public void generateQrCode(String text, String format, int size) throws WriterException, IOException {
+        QRCodeWriter qrCodeWriter = new QRCodeWriter();
+        Map<EncodeHintType, ErrorCorrectionLevel> hints = new EnumMap<>(EncodeHintType.class);
+        hints.put(EncodeHintType.ERROR_CORRECTION, ErrorCorrectionLevel.H);
 
-    public QRCode generateQRCode(String text, QRCodeConfig config) throws QRCodeException {
-        BufferedImage qrCodeImage = encoder.encode(text, config);
-        return new QRCode(config);
-    }
-
-    public String decodeQRCode(BufferedImage qrCodeImage) throws QRCodeException {
-        return decoder.decode(qrCodeImage);
-    }
-
-    public void saveQRCodeToFile(QRCode qrCode, File file) throws QRCodeException {
-        fileWriter.writeToFile(qrCode, file);
-    }
-
-    public QRCode loadQRCodeFromFile(File file) throws QRCodeException {
-        return fileReader.readFromFile(file);
+        BitMatrix bitMatrix = qrCodeWriter.encode(text, BarcodeFormat.QR_CODE, size, size, hints);
+        MatrixToImageWriter.writeToPath(bitMatrix, format, outputFile.toPath());
     }
 }

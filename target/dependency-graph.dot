@@ -1,0 +1,30 @@
+digraph QRCodeBuilderPattern {
+    // Node styling
+    node [shape=box, style="rounded,filled", fillcolor=lightblue];
+
+// Nodes
+    QRCodeBuilderImpl [label="QRCodeBuilderImpl"];
+QRCodeBuilder [label="QRCodeBuilder"];
+QRCodeConfig [label="QRCodeConfig"];
+QRCode [label="QRCode"];
+
+// Relationships
+    QRCodeBuilderImpl -> QRCodeBuilder [label="uses"];
+QRCodeBuilder -> QRCodeConfig [label="builds"];
+QRCodeBuilder -> QRCode [label="returns"];
+
+// Additional nodes for the QRCode generation process
+    QRCodeGenerator [label="QRCodeGenerator"];
+QRCodeEncoderImpl [label="QRCodeEncoderImpl"];
+QRCodeEncoder [label="QRCodeEncoder"];
+QRCodeDecoderImpl [label="QRCodeDecoderImpl"];
+QRCodeDecoder [label="QRCodeDecoder"];
+QRCodeFileReader [label="QRCodeFileReader"];
+QRCodeFileWriter [label="QRCodeFileWriter"];
+
+// Relationships for QRCode generation
+    QRCodeGenerator -> QRCodeEncoder [label="uses"];
+QRCodeGenerator -> QRCodeDecoder [label="uses"];
+QRCodeGenerator -> QRCodeFileReader [label="uses"];
+QRCodeGenerator -> QRCodeFileWriter [label="uses"];
+}
