@@ -1,5 +1,6 @@
 package com.boney.qrcode;
 
+import com.google.zxing.NotFoundException;
 import picocli.CommandLine;
 import picocli.CommandLine.Command;
 import picocli.CommandLine.Option;
@@ -30,6 +31,8 @@ public class RunnerClass implements Callable<Integer> {
         @Option(names = { "-o", "--output-name" }, description = "Output name")
         String outputFile;
 
+        @Option(names = {"-r", "--read"}, description = "Input path to the image file containing the QR code")
+        private String readPath;
 
         @Parameters(index = "0", description = "Text to be encoded in the QR code")
         private String text;
@@ -43,32 +46,43 @@ public class RunnerClass implements Callable<Integer> {
                         size = 200;
                 }
 
-                if(this.format == null) {
+                if (this.format == null) {
                         this.format = "png";
                 }
 
+                if (readPath != null) {
+                        QRCodeRenderToText qrCodeRenderToText = new QRCodeRenderToText();
+                        try {
+                                String decodedText = qrCodeRenderToText.readQR(readPath);
+                                System.out.println("[+] Decoded QR code text: " + decodedText);
+                                return 0;
+                        } catch (IOException | NotFoundException e) {
+                                System.err.println("[-] Error while reading QR code (" + e.getMessage() + ")");
+                                return 3;
+                        }
+                } else if (text != null) {
+                        System.out.println("[+] Generating QR code.....");
+                        QRCodeGenerator qrCodeGenerator = new QRCodeGenerator(text, format, size, path, outputFile);
 
-                System.out.println("[+] Generating QR code.....");
-                QRCodeGenerator qrCodeGenerator = new QRCodeGenerator(text, format, size, path, outputFile);
-
-                if (verbose) {
-                        System.out.println("[.] Params:");
-                        System.out.println(qrCodeGenerator);
+                        if (verbose) {
+                                System.out.println("[.] Params:");
+                                System.out.println(qrCodeGenerator);
+                        }
+                        try {
+                                qrCodeGenerator.generateQrCode();
+                                System.out.println("[+] QR code generated. Output: " + (outputFile == null ? "qr" : outputFile));
+                                return 0;
+                        } catch (WriterException e) {
+                                System.err.println("[-] Error while generating QR code (" + e.getMessage() + ")");
+                                return 1;
+                        } catch (IOException e) {
+                                System.err.println("[-] Error while generating file (" + e.getMessage() + ")");
+                                return 2;
+                        }
+                } else {
+                        System.err.println("[-] Please provide either --read or text input.");
+                        return 4;
                 }
-
-                try {
-                        qrCodeGenerator.generateQrCode();
-                        System.out.println("[+] QR code generated. Output: " + (outputFile == null ? "qr": outputFile));
-                        return 0;
-                } catch (WriterException e) {
-                        System.err.println("[-] Error while generating QR code (" + e.getMessage() + ")");
-                        return 1;
-                } catch (IOException e) {
-                        System.err.println("[-] Error while generating file (" + e.getMessage() + ")");
-                        return 2;
-                }
-
-
         }
 
         public static void main(String[] args) {
