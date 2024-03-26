@@ -26,7 +26,8 @@ git clone https://github.com/dvc-77/QRCodeGenerator.git
 2. Navigate to the project directory:
 
 ``` cd QRCodeGenerator```
-3. Build the project using Maven:
+
+3.Build the project using Maven:
 
 ```mvn clean install```
 
