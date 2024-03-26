@@ -7,11 +7,8 @@
     <list default="true" id="9a67eeb7-5367-4657-b09d-07ccc0ea2a73" name="Changes" comment="">
       <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/pom.xml" beforeDir="false" afterPath="$PROJECT_DIR$/pom.xml" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/main/java/com/boney/qrcode/QRCodeGenerator.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/com/boney/qrcode/QRCodeGenerator.java" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/src/main/java/com/boney/qrcode/RunnerClass.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/com/boney/qrcode/RunnerClass.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/main/java/com/boney/qrcode/exception/QRCodeException.java" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/target/dependency-graph.dot" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/target/dependency-graph.png" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/target/qr_code_builder_pattern.png" beforeDir="false" />
     </list>
     <option name="SHOW_DIALOG" value="false" />
     <option name="HIGHLIGHT_CONFLICTS" value="true" />

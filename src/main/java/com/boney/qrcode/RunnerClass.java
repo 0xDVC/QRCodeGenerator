@@ -7,6 +7,8 @@ import picocli.CommandLine.Parameters;
 
 import java.io.IOException;
 import com.google.zxing.WriterException;
+
+import java.nio.file.Paths;
 import java.util.concurrent.Callable;
 
 @Command(name = "bqr",
@@ -41,8 +43,10 @@ public class RunnerClass implements Callable<Integer> {
                         size = 200;
                 }
 
+
+
                 System.out.println("[+] Generating QR code.....");
-                QRCodeGenerator qrCodeGenerator = new QRCodeGenerator(text, format, size);
+                QRCodeGenerator qrCodeGenerator = new QRCodeGenerator(text, format, size, path);
 
                 if (verbose) {
                         System.out.println("[.] Params:");
