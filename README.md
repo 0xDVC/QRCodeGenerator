@@ -43,7 +43,7 @@ git clone https://github.com/dvc-77/QRCodeGenerator.git
 - `-o`, `--output-name`: Set the name of the output file for the QR code image.
 
 ## Running Locally
-![Demo](./demo.gif)
+![Demo](demo.gif)
 
 ## Examples
 1. Generate a QR code with default settings:
