@@ -1,14 +1,12 @@
 package com.boney.qrcode;
 
-import com.google.zxing.WriterException;
 import picocli.CommandLine;
 import picocli.CommandLine.Command;
 import picocli.CommandLine.Option;
 import picocli.CommandLine.Parameters;
 
-import java.io.IOError;
 import java.io.IOException;
-import java.io.WriteAbortedException;
+import com.google.zxing.WriterException;
 import java.util.concurrent.Callable;
 
 @Command(name = "bqr",
@@ -20,22 +18,31 @@ public class RunnerClass implements Callable<Integer> {
         private boolean verbose = false;
 
         @Option(names = { "-s", "--size" }, description = "Image size")
-        String size;
+        String dimension;
 
         @Option(names = { "-f", "--format" }, description = "Image format")
         String format;
 
         @Option(names = { "-d", "--directory" }, description = "Output path")
         String path;
+        @Option(names = { "-o", "--output-name" }, description = "Output name")
+        String outputFile;
+
 
         @Parameters(index = "0", description = "Text to be encoded in the QR code")
         private String text;
 
-
         @Override
-        public Integer call() throws WriterException, IOException {
+        public Integer call() {
+                int size;
+                if (dimension != null) {
+                        size = Integer.parseInt(dimension);
+                } else {
+                        size = 200;
+                }
+
                 System.out.println("[+] Generating QR code.....");
-                QRCodeGenerator qrCodeGenerator = new QRCodeGenerator(text, format, Integer.parseInt(size));
+                QRCodeGenerator qrCodeGenerator = new QRCodeGenerator(text, format, size);
 
                 if (verbose) {
                         System.out.println("[.] Params:");
@@ -47,10 +54,10 @@ public class RunnerClass implements Callable<Integer> {
                         System.out.println("[+] QR code generated. Output: " + outputFile);
                         return 0;
                 } catch (WriterException e) {
-                        throw new WriterException("[-] Error while generating QR code (" + e.getMessage() + ")");
+                        System.err.println("[-] Error while generating QR code (" + e.getMessage() + ")");
                         return 1;
                 } catch (IOException e) {
-                        throw new IOException("[-] Error while generating file (" + e.getMessage() + ")");
+                        System.err.println("[-] Error while generating file (" + e.getMessage() + ")");
                         return 2;
                 }
 
