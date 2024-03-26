@@ -43,10 +43,13 @@ public class RunnerClass implements Callable<Integer> {
                         size = 200;
                 }
 
+                if(this.format == null) {
+                        this.format = "png";
+                }
 
 
                 System.out.println("[+] Generating QR code.....");
-                QRCodeGenerator qrCodeGenerator = new QRCodeGenerator(text, format, size, path);
+                QRCodeGenerator qrCodeGenerator = new QRCodeGenerator(text, format, size, path, outputFile);
 
                 if (verbose) {
                         System.out.println("[.] Params:");
@@ -55,7 +58,7 @@ public class RunnerClass implements Callable<Integer> {
 
                 try {
                         qrCodeGenerator.generateQrCode();
-                        System.out.println("[+] QR code generated. Output: " + outputFile);
+                        System.out.println("[+] QR code generated. Output: " + (outputFile == null ? "qr": outputFile));
                         return 0;
                 } catch (WriterException e) {
                         System.err.println("[-] Error while generating QR code (" + e.getMessage() + ")");

@@ -22,20 +22,17 @@ public class QRCodeGenerator {
     private int size;
     private String outputFilePath;
 
-    public QRCodeGenerator(String text, String format, int size, String outputFilePath) {
+    public QRCodeGenerator(String text, String format, int size, String outputFilePath, String outputFile) {
         this.text = text;
         this.format = format;
         this.size = size;
         this.outputFilePath = outputFilePath;
 
-        if(this.format == null) {
-            this.format = "png";
-        }
 
         if (this.outputFilePath != null) {
-            this.outputFilePath = Paths.get(System.getProperty("user.dir"), outputFile + "." + format).toString();
+            this.outputFilePath = Paths.get(System.getProperty("user.dir"), this.outputFile + "." + format).toString();
         } else {
-            this.outputFilePath = Paths.get(System.getProperty("user.dir"), "qr." + format).toString();
+            this.outputFilePath = Paths.get(System.getProperty("user.dir"), (outputFile == null ? "qr.":(outputFile+'.')) + format).toString();
         }
     }
 

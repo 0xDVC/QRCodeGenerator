@@ -32,7 +32,7 @@ git clone https://github.com/dvc-77/QRCodeGenerator.git
 
 ## Usage
 
-```java -jar bqr-jar-with-dependencies.jar [OPTIONS] <text>```
+```java -jar target/bqr-jar-with-dependencies.jar [OPTIONS] <text>```
 
 ## Options
 - `-v`, `--verbose`: Enable verbose output for more detailed information.
@@ -41,19 +41,20 @@ git clone https://github.com/dvc-77/QRCodeGenerator.git
 - `-d`, `--directory`: Specify the output directory for the generated QR code image.
 - `-o`, `--output-name`: Set the name of the output file for the QR code image.
 
-## Demo
+## Running Locally
 ![Demo](./demo.gif)
+
 ## Examples
 1. Generate a QR code with default settings:
 
-```java -jar bqr-jar-with-dependencies.jar "https://example.com"```
+```java -jar target/bqr-jar-with-dependencies.jar "https://example.com"```
 2. Generate a QR code with custom size and format:
 
-```java -jar bqr-jar-with-dependencies.jar -s 300 -f jpg "https://example.com"```
+```java -jar target/bqr-jar-with-dependencies.jar -s 300 -f jpg "https://example.com"```
 
 3. Generate a QR code with a specific output directory and file name:
 
-```java -jar bqr-jar-with-dependencies.jar -d /path/to/output -o my_qrcode "https://example.com"```
+```java -jar target/bqr-jar-with-dependencies.jar -d /path/to/output -o my_qrcode "https://example.com"```
 
 ## Dependencies
 - [ZXing](https://github.com/zxing/zxing) (com.google.zxing:core, com.google.zxing:javase)
