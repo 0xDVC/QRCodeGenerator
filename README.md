@@ -7,12 +7,11 @@ BoneyQR is a simple command-line interface (CLI) tool for generating QR codes fr
 - [Installation](#installation)
 - [Usage](#usage)
 - [Options](#options)
+- [Running locally](#running-locally)
 - [Examples](#examples)
 - [Dependencies](#dependencies)
 - [Contributing](#contributing)
 - [License](#license)
-- [Contact](#contact)
-- [Acknowledgements](#acknowledgements)
 
 ## Prerequisites
 - Java 17 or later
@@ -49,6 +48,7 @@ git clone https://github.com/dvc-77/QRCodeGenerator.git
 1. Generate a QR code with default settings:
 
 ```java -jar target/bqr-jar-with-dependencies.jar "https://example.com"```
+
 2. Generate a QR code with custom size and format:
 
 ```java -jar target/bqr-jar-with-dependencies.jar -s 300 -f jpg "https://example.com"```
@@ -66,10 +66,3 @@ Contributions are welcome! If you find any issues or have suggestions for improv
 
 ## License
 This project is licensed under the [MIT License](LICENSE).
-
-## Contact
-For any questions or inquiries, please contact the project maintainer at [your-email@example.com].
-
-## Acknowledgements
-- [ZXing](https://github.com/zxing/zxing) for the QR code generation library.
-- [Picocli](https://picocli.info/) for the command-line parsing library.
