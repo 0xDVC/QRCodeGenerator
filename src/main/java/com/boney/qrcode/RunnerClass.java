@@ -9,7 +9,6 @@ import picocli.CommandLine.Parameters;
 import java.io.IOException;
 import com.google.zxing.WriterException;
 
-import java.nio.file.Paths;
 import java.util.concurrent.Callable;
 
 @Command(name = "bqr",
@@ -21,10 +20,10 @@ public class RunnerClass implements Callable<Integer> {
         private boolean verbose = false;
 
         @Option(names = { "-s", "--size" }, description = "Image size")
-        String dimension;
+        int size = 200;
 
         @Option(names = { "-f", "--format" }, description = "Image format")
-        String format;
+        String format = "png";
 
         @Option(names = { "-d", "--directory" }, description = "Output path")
         String path;
@@ -39,16 +38,6 @@ public class RunnerClass implements Callable<Integer> {
 
         @Override
         public Integer call() {
-                int size;
-                if (dimension != null) {
-                        size = Integer.parseInt(dimension);
-                } else {
-                        size = 200;
-                }
-
-                if (this.format == null) {
-                        this.format = "png";
-                }
 
                 if (readPath != null) {
                         QRCodeRenderToText qrCodeRenderToText = new QRCodeRenderToText();

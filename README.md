@@ -57,6 +57,9 @@ git clone https://github.com/dvc-77/QRCodeGenerator.git
 
 ```java -jar target/bqr-jar-with-dependencies.jar -d /path/to/output -o my_qrcode "https://example.com"```
 
+4. Generate text from QR code:
+```java -jar target/bqr-jar-with-dependencies.jar -r /path/to/qrcode.png```
+
 ## Dependencies
 - [ZXing](https://github.com/zxing/zxing) (com.google.zxing:core, com.google.zxing:javase)
 - [Picocli](https://picocli.info/) (info.picocli:picocli)
